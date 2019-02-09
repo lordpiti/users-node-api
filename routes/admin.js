@@ -13,7 +13,9 @@ const router = express.Router();
 // router.get('/products', adminController.getProducts);
 
 // /admin/add-product => POST
-router.post('/login-user', adminController.loginUser);
+router.post('/LoginGoogle', adminController.loginGoogle);
+
+router.post('/Login', adminController.loginFacebook);
 
 // router.get('/edit-product/:productId', adminController.getEditProduct);
 

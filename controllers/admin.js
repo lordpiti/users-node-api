@@ -28,16 +28,24 @@ exports.postAddUser = (req, res, next) => {
     });
 };
 
-exports.loginUser = async (req, res, next) => {
+exports.loginGoogle = async (req, res, next) => {
   const userId = req.body.userId;
   const accessToken = req.body.accessToken;
 
-  await userService.loginUser(userId, accessToken, true, 2, (doc) => {
+  await userService.loginUser(userId, accessToken, 2, (doc) => {
     //console.log(doc);
     res.send(doc);
   });
-  
-  
+};
+
+exports.loginFacebook = async (req, res, next) => {
+  const userId = req.body.userId;
+  const accessToken = req.body.accessToken;
+
+  await userService.loginUser(userId, accessToken, 1, (doc) => {
+    //console.log(doc);
+    res.send(doc);
+  });
 };
 
 // exports.getEditProduct = (req, res, next) => {

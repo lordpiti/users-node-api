@@ -2,7 +2,7 @@ const axios = require('axios');
 const User = require('../models/user');
 const uuidv4 = require('uuid/v4');
 
-exports.loginUser = async (userId, accessToken, login, authenticationType, callback) => {
+exports.loginUser = async (userId, accessToken, authenticationType, callback) => {
   
   const googleTokenUrl = `https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${accessToken}`;
   const facebookVerifyTokenEndPoint = `https://graph.facebook.com/me?access_token=${accessToken}&fields=email,name`;

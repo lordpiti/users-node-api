@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/admin', adminRoutes);
+app.use('/user', adminRoutes);
 app.use(shopRoutes);
 
 app.use(errorController.get404);
