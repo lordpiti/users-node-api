@@ -28,11 +28,11 @@ exports.postAddUser = (req, res, next) => {
     });
 };
 
-exports.loginUserGoogle = async (req, res, next) => {
+exports.loginUser = async (req, res, next) => {
   const userId = req.body.userId;
   const accessToken = req.body.accessToken;
 
-  await userService.loginUserGoogle(userId, accessToken, true, (doc) => {
+  await userService.loginUser(userId, accessToken, true, 2, (doc) => {
     //console.log(doc);
     res.send(doc);
   });
