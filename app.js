@@ -34,7 +34,7 @@ mongoose
     'mongodb://lordpiti:Kidswast1@ds050559.mlab.com:50559/haha'
   )
   .then(result => {
-    app.listen(8080);
+    app.listen(process.env.PORT || 3001);
   })
   .catch(err => {
     console.log(err);
