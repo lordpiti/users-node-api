@@ -17,6 +17,8 @@ router.post('/LoginGoogle', adminController.loginGoogle);
 
 router.post('/Login', adminController.loginFacebook);
 
+router.get('/UserList', adminController.checkAccess, adminController.getAllUsers);
+
 // router.get('/edit-product/:productId', adminController.getEditProduct);
 
 // router.post('/edit-product', adminController.postEditProduct);

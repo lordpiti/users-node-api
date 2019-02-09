@@ -48,6 +48,25 @@ exports.loginFacebook = async (req, res, next) => {
   });
 };
 
+exports.checkAccess = (req, res, next) => {
+  
+  userService.checkAccess(req.headers["access-token"], '2', (doc) => {
+    if (doc) {
+      next();
+    }
+  });
+
+  // if (req.headers["access-token"] === 'haha'){
+  //   next();
+  // }
+};
+
+exports.getAllUsers = (req, res, next) => {
+  userService.findAllUsers((users) => {
+    res.send(users);
+  })
+};
+
 // exports.getEditProduct = (req, res, next) => {
 //   const editMode = req.query.edit;
 //   if (!editMode) {

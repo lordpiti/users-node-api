@@ -89,3 +89,16 @@ exports.checkAccess = (accessToken, authenticationType, callback) => {
     callback(userData);
   });
 }
+
+exports.findAllUsers = (callback) => {
+
+  //Promises syntax
+  // User.find().then( users => {
+  //   callback(users);
+  // })
+
+  //Callback syntax
+  User.find( (err, users) => {
+    callback(users);
+  });
+}
