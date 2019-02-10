@@ -35,15 +35,17 @@ exports.loginUser = async (userId, accessToken, authenticationType, callback) =>
         userId: response.data.id,
         email: response.data.email,
         name: response.data.name,
-        isVerified: true,
         authenticationType: authenticationType,
         role: "User",
         token: uuidv4()
       }
     }
 
-    User.findOne({ email: response.data.email, authenticationType: authenticationType}, function (err, doc){
+    console.log(response.data.email);
+    console.log(authenticationType);
 
+    User.findOne({ email: response.data.email, authenticationType: authenticationType}, function (err, doc){
+      console.log(doc);
       if (doc) {
         userData.role = doc.role;
         userData.token = doc.token;
@@ -79,7 +81,6 @@ exports.checkAccess = (accessToken, authenticationType, callback) => {
         userId: doc.userId,
         email: doc.email,
         name: doc.name,
-        isVerified: true,
         authenticationType: doc.authenticationType,
         role: doc.role,
         token: doc.token

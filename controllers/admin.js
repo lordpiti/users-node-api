@@ -54,11 +54,9 @@ exports.checkAccess = (req, res, next) => {
     if (doc) {
       next();
     }
+    else res.status(403).send({error: 'access denied'});
   });
 
-  // if (req.headers["access-token"] === 'haha'){
-  //   next();
-  // }
 };
 
 exports.getAllUsers = (req, res, next) => {
