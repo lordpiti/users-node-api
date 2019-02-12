@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
@@ -25,5 +26,6 @@
     "pug": "^2.0.3",
     "sequelize": "^5.0.0-beta.11",
     "uuid": "^3.3.2"
-  }
+  },
+  "heroku-run-build-script": true
 }

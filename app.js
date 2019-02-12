@@ -4,8 +4,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+//use .env file
+require('dotenv').config();
+
 const errorController = require('./controllers/error');
-// const User = require('./models/user');
 
 const app = express();
 
@@ -29,9 +31,12 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
+const connectionString = process.env.MONGO_CONNECTION_STRING;
+console.log(connectionString)
+
 mongoose
   .connect(
-    'mongodb://lordpiti:Kidswast1@ds050559.mlab.com:50559/haha'
+    connectionString
   )
   .then(result => {
     app.listen(process.env.PORT || 3001);
