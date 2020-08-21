@@ -17,7 +17,13 @@ router.post('/LoginGoogle', adminController.loginGoogle);
 
 router.post('/Login', adminController.loginFacebook);
 
-router.get('/UserList', adminController.checkAccess, adminController.getAllUsers);
+router.get(
+  '/UserList',
+  adminController.checkAccess,
+  adminController.getAllUsers
+);
+
+router.post('/CreateTopSquad', adminController.postCreateTopSquad);
 
 // router.get('/edit-product/:productId', adminController.getEditProduct);
 

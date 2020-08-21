@@ -20,9 +20,12 @@ const shopRoutes = require('./routes/shop');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
   next();
 });
 
@@ -32,15 +35,13 @@ app.use(shopRoutes);
 app.use(errorController.get404);
 
 const connectionString = process.env.MONGO_CONNECTION_STRING;
-console.log(connectionString)
+// console.log(connectionString)
 
 mongoose
-  .connect(
-    connectionString
-  )
-  .then(result => {
+  .connect(connectionString)
+  .then((result) => {
     app.listen(process.env.PORT || 3001);
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err);
   });

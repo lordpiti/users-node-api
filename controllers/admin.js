@@ -1,5 +1,6 @@
 const User = require('../models/user');
-const userService = require('../services/user-service')
+const TopSquad = require('../models/topsquad');
+const userService = require('../services/user-service');
 
 exports.postAddUser = (req, res, next) => {
   console.log(req.body);
@@ -15,15 +16,15 @@ exports.postAddUser = (req, res, next) => {
     Name: name,
     Role: role,
     Token: token,
-    AuthenticationType: authenticationType
+    AuthenticationType: authenticationType,
   });
   user
     .save()
-    .then(result => {
+    .then((result) => {
       console.log(result);
       console.log('Created User');
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 };
@@ -49,20 +50,37 @@ exports.loginFacebook = async (req, res, next) => {
 };
 
 exports.checkAccess = (req, res, next) => {
-  
-  userService.checkAccess(req.headers["access-token"], '2', (doc) => {
+  console.log('hehe');
+  userService.checkAccess(req.headers['access-token'], '2', (doc) => {
     if (doc) {
       next();
-    }
-    else res.status(403).send({error: 'access denied'});
+    } else res.status(403).send({ error: 'access denied' });
   });
-
 };
 
 exports.getAllUsers = (req, res, next) => {
   userService.findAllUsers((users) => {
     res.send(users);
-  })
+  });
+};
+
+exports.postCreateTopSquad = (req, res, next) => {
+  console.log(req.body);
+  const topSquad = new TopSquad(req.body);
+  // {
+  //   userId: 'test',
+  //   squad: [{ id: '1' }, { id: '2' }],
+  // }
+  topSquad
+    .save()
+    .then((result) => {
+      console.log(result);
+      console.log('Created squad');
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 // exports.getEditProduct = (req, res, next) => {
