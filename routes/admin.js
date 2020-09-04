@@ -25,6 +25,8 @@ router.get(
 
 router.post('/CreateTopSquad', adminController.postCreateTopSquad);
 
+router.get('/TopSquadList', adminController.getAllTopSquads);
+
 // router.get('/edit-product/:productId', adminController.getEditProduct);
 
 // router.post('/edit-product', adminController.postEditProduct);

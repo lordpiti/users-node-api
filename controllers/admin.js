@@ -65,22 +65,28 @@ exports.getAllUsers = (req, res, next) => {
 };
 
 exports.postCreateTopSquad = (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   const topSquad = new TopSquad(req.body);
   // {
   //   userId: 'test',
-  //   squad: [{ id: '1' }, { id: '2' }],
+  //   squad: [{ id: '1', positionCode: 1 }, { id: '2', positionCode: 2 }],
   // }
   topSquad
     .save()
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       console.log('Created squad');
       res.send(result);
     })
     .catch((err) => {
       console.log(err);
     });
+};
+
+exports.getAllTopSquads = (req, res, next) => {
+  userService.findAllTopSquads((topSquads) => {
+    res.send(topSquads);
+  });
 };
 
 // exports.getEditProduct = (req, res, next) => {
