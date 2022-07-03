@@ -1,7 +1,7 @@
 const axios = require('axios');
 const User = require('../models/user');
 const TopSquad = require('../models/topsquad');
-const uuidv4 = require('uuid/v4');
+const { uuidv4 } = require('uuid');
 
 exports.loginUser = async (
   userId,
@@ -33,7 +33,7 @@ exports.loginUser = async (
     } else {
       //Facebook authentication
       response = await axios.get(facebookVerifyTokenEndPoint);
-      const response2 = await axios.get(facebookVerifyAppEndpoint);
+      //const response2 = await axios.get(facebookVerifyAppEndpoint);
 
       userData = {
         userId: response.data.id,

@@ -38,7 +38,10 @@ const connectionString = process.env.MONGO_CONNECTION_STRING;
 // console.log(connectionString)
 
 mongoose
-  .connect(connectionString)
+  .connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then((result) => {
     app.listen(process.env.PORT || 3001);
   })
