@@ -50,7 +50,6 @@ exports.loginFacebook = async (req, res, next) => {
 };
 
 exports.checkAccess = (req, res, next) => {
-  console.log('hehe');
   userService.checkAccess(req.headers['access-token'], '2', (doc) => {
     if (doc) {
       next();

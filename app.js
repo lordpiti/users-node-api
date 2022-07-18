@@ -3,6 +3,8 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger_output.json');
 
 //use .env file
 require('dotenv').config();
@@ -31,6 +33,8 @@ app.use(function (req, res, next) {
 
 app.use('/user', adminRoutes);
 app.use(shopRoutes);
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
 
 app.use(errorController.get404);
 
