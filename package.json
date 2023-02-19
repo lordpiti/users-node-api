@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "start-server": "node app.js",
-    "swagger-autogen": "node swagger.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "swagger-autogen": "node swagger.js"
   },
   "author": "LoRD-PiTi",
   "license": "ISC",
