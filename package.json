@@ -11,7 +11,7 @@
   "author": "LoRD-PiTi",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "nodemon": "^2.0.20"
   },
   "dependencies": {
     "axios": "^0.27.2",
