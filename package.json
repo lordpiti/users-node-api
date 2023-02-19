@@ -4,10 +4,10 @@
   "description": "Complete Node.js Guide",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "start-server": "node app.js",
-    "swagger-autogen": "node swagger.js"
+    "swagger-autogen": "node swagger.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "LoRD-PiTi",
   "license": "ISC",
@@ -26,9 +26,9 @@
     "mysql2": "^2.3.3",
     "pug": "^3.0.2",
     "sequelize": "^6.21.3",
-    "uuid": "^8.3.2",
+    "swagger-autogen": "^2.21.5",
     "swagger-ui-express": "^4.5.0",
-    "swagger-autogen": "^2.21.5"
+    "uuid": "^8.3.2"
   },
   "heroku-run-build-script": true
 }
