@@ -41,7 +41,7 @@ exports.loginUser = async (
         name: response.data.name,
         authenticationType: authenticationType,
         role: 'User',
-        token: uuidv4(),
+        token: uuid.v4(),
       };
     }
 
