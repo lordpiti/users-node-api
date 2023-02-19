@@ -1,7 +1,7 @@
 const axios = require('axios');
 const User = require('../models/user');
 const TopSquad = require('../models/topsquad');
-const { uuidv4 } = require('uuid');
+const uuid = require('uuid');
 
 exports.loginUser = async (
   userId,
@@ -9,7 +9,7 @@ exports.loginUser = async (
   authenticationType,
   callback
 ) => {
-  const googleTokenUrl = `https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${accessToken}`;
+  const googleTokenUrl = `https://oauth2.googleapis.com/tokeninfo?id_token=${accessToken}`;
   const facebookVerifyTokenEndPoint = `https://graph.facebook.com/me?access_token=${accessToken}&fields=email,name`;
   const facebookVerifyAppEndpoint = `https://graph.facebook.com/app?access_token=${accessToken}`;
 
@@ -28,7 +28,7 @@ exports.loginUser = async (
         isVerified: true,
         authenticationType: authenticationType,
         role: 'User',
-        token: uuidv4(),
+        token: uuid.v4(),
       };
     } else {
       //Facebook authentication
